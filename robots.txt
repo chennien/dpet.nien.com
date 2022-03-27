@@ -1,0 +1,8 @@
+#
+# Robots.txt file for dpet.nien.com
+# 
+# For questions, please contact https://bit.ly/34l3I2k .
+# https://goo.gl/QVuFXg
+
+User-agent: *
+Disallow: /

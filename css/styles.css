@@ -1,0 +1,310 @@
+@charset "UTF-8";
+
+@import url(//cdn.jsdelivr.net/combine/gh/necolas/normalize.css@8.0.1/normalize.min.css,gh/fabien-d/alertify.js@0.3.11/themes/alertify.core.min.css,gh/chennien/hearty.me@2/public/alertify.custom.min.css);
+@import url(//cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@v5.15.4/css/all.min.css);
+@import url(//cdn.jsdelivr.net/gh/vdustr/taipei-sans-tc@v0.1.1/packages/core/dist/Regular/TaipeiSansTCBeta-Regular.min.css);
+
+/* common */
+*, 
+*::before, 
+*::after{
+	box-sizing: inherit;
+}
+html{
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+html, 
+body{
+	overflow: hidden;
+}
+a:link, 
+a:visited, 
+a:hover, 
+a:active{
+	text-decoration: none;
+}
+[onclick]{
+	cursor: pointer;
+}
+body{
+	margin: 0;
+	padding: 0;
+	font-family: "Taipei Sans TC", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "\5FAE\8EDF\6B63\9ED1\9AD4", "Microsoft JhengHei", "\5FAE\8F6F\96C5\9ED1", "Microsoft Yahei", "Heiti TC", "Heiti SC", "STHeitiTC-Medium";
+	font-size: medium;
+	font-smooth: always;
+	text-rendering: optimizeSpeed;
+	-webkit-touch-callout: none;
+	background-image: url("//cdn.jsdelivr.net/gh/chennien/dpet.nien.com@alpha6/images/background.png");
+	background-repeat: repeat;
+	background-position: center center;
+	-webkit-tap-highlight-color: transparent;
+	overscroll-behavior: none;
+	scroll-behavior: smooth;
+}
+	body, 
+	.feed{
+		scrollbar-width: none;
+	}
+	body::-webkit-scrollbar, 
+	.feed::-webkit-scrollbar{
+		display: none;
+		width: 0;
+		background: transparent;
+	}
+
+	body, /* iOS Safari 100vh alternative */
+	body.loading::after, 
+	body.splashscreen::after{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	body.loading::after, 
+	body.splashscreen::after{
+		content: "";
+		background-size: 250px;
+		cursor: wait;
+	}
+	body.loading::after{
+		background: url("//cdn.jsdelivr.net/gh/chennien/dpet.nien.com@alpha6/images/sleeping_kitten.png") no-repeat center center, 
+			linear-gradient(rgba(255,255,255,.65), rgba(255,255,255,.65));
+	}
+	body.splashscreen::after{
+		background-color: #fcc434;
+		background-image: url("//cdn.jsdelivr.net/gh/chennien/dpet.nien.com@alpha6/images/logo.png");
+		background-repeat: no-repeat;
+		background-position: center center;
+		animation: blink 1s infinite;
+	}
+
+.screen{
+	position: relative; /* camera */
+	margin: 0 auto;
+	width: auto;
+	max-width: 480px;
+	height: inherit;
+	background: #000;
+	overflow: hidden; /* camera */
+}
+footer{
+	position: fixed;
+	display: flex;
+	flex-flow: row nowrap;
+	width: 100%;
+	max-width: inherit;
+	bottom: 0;
+	justify-content: space-evenly;
+	font-size: larger;
+	background: rgba(0,0,0,.6);
+	padding: .6em 0;
+}
+	footer a{
+		color: #fff;
+		text-shadow: 2px 2px #555;
+	}
+
+
+/* feed & addons */
+.feed{
+	height: inherit;
+	-webkit-scroll-snap-type: y mandatory;
+	scroll-snap-type: y mandatory;
+	-webkit-scroll-snap-points-y: repeat(100%);
+	scroll-snap-points-y: repeat(100%);
+	overflow-x: hidden;
+	overflow: scroll;
+
+	-webkit-overflow-scrolling: touch;
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+}
+	.feed video{
+		display: block;
+		width: 100%;
+		height: inherit;
+
+		-webkit-scroll-snap-align: start;
+		scroll-snap-align: start;
+		-webkit-scroll-snap-stop: always;
+		scroll-snap-stop: always;
+	}
+	.feed video.cat{
+		display: none;
+	}
+
+.kits{
+	position: absolute;
+	display: flex;
+	flex-flow: column wrap;
+	margin: 0 0 0 2em;
+	padding: 0;
+	top: 35%;
+	transform: translateX(-50%);
+	color: #fff;
+	text-shadow: 2px 2px #555;
+}
+	.kits .heart{
+		width: 100px;
+		height: 100px;
+		background: url(//cdn.jsdelivr.net/gh/chennien/dpet.nien.com@alpha6/images/heart.png) no-repeat;
+		background-position: 0 0;
+		transition: background-position 1s steps(28);
+		transition-duration: 0;
+		cursor: pointer;
+	}
+		.kits .heart.is-active{
+			transition-duration: 1s;
+			background-position: -2800px 0;
+		}
+
+	.kits .fas{
+		padding: 0 0 35px 40px;
+		font-size: 1.5em;
+		cursor: pointer;
+	}
+
+.addons, 
+.comments{
+	position: absolute;
+	list-style: none;
+	bottom: 0;
+	left: 0;
+	margin: 0 auto;
+	padding: 0;
+	width: 100%;
+	background: rgba(255,255,255,.8);
+	border: 1px solid #ccc;
+	border-radius: .8em .8em 0 0;
+	-webkit-backdrop-filter: blur(5px);
+	backdrop-filter: blur(5px);
+}
+	.comments{
+		display: none;
+	}
+	.addons[title]::before, 
+	.comments[title]::before{
+		display: block;
+		content: attr(title);
+		text-align: center;
+		padding: .8em 0;
+		color: #222;
+		border-bottom: 1px dashed #ccc;
+		letter-spacing: 1px;
+	}
+	.comments li{
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		padding: .3em 0;
+	}
+	.comments li[title]::after{
+		flex: 1;
+		content: attr(title);
+		margin: .4em;
+		padding: .6em .8em;
+		color: #222;
+		background: rgba(255,255,255,.75);
+		border-radius: .75em;
+		box-shadow: inset 0 0 3px 1px #fff;
+		text-align: justify;
+		line-height: 1.5;
+		letter-spacing: 1px;
+	}
+	.comments div{
+		width: 2.5em;
+		height: 2.5em;
+		margin: .6em;
+		border-radius: 50%;
+		background-size: cover;
+	}
+	.comments input{
+		width: 100%;
+		margin: 0 .5em;
+		padding: .5em 1em;
+		border: 1px solid #bc8f8f;
+		border-radius: 2em;
+		color: #555;
+		background: rgba(255,255,255,.6);
+		box-shadow: inset 0 1px 3px #ddd;
+		line-height: 2;
+		letter-spacing: 1px;
+		caret-color: #bc8f8f;
+		outline: none;
+	}
+
+.addons li{
+	margin: 1em .8em;
+	text-align: center;
+}
+	.addons img.active{
+		border: 3px solid #fcc434;
+	}
+
+
+/* camera */
+.screen .camera, 
+.screen .rec{
+	left: 50%;
+	transform: translateX(-50%);
+}
+.screen .camera{
+	position: absolute;
+	display: block;
+	top: 0;
+	height: inherit;
+	background: #000;
+
+	/* 全版置中
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		width: auto;
+		height: auto;
+		min-width: 100%;
+		min-height: 100vh;
+	*/
+}
+.screen .rec{
+	position: absolute;
+	display: block;
+	bottom: 1em;
+	padding: .2em;
+	font-size: 4em;
+	cursor: pointer;
+	color: red;
+	animation: blink 2s infinite;
+	text-shadow: 1px 1px #555;
+}
+	@keyframes blink{
+		from{opacity: 1;}
+		50%{opacity: 0.5;}
+		to{opacity: 1;}
+	}
+
+
+/* signin */
+.signin{
+	background: #fff;
+}
+	.signin div{
+		width: 90%;
+		margin: 0 auto;
+		height: inherit;
+		background-image: url(//cdn.jsdelivr.net/gh/chennien/dpet.nien.com@alpha6/images/signin.png);
+		background-size: contain;
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
+
+
+/* tutorial */
+.tutorial{
+	width: inherit;
+	height: inherit;
+	background-color: #000;
+}
+

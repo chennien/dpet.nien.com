@@ -1,0 +1,6 @@
+https://dpet.netlify.app/* https://dpet.nien.com/:splat 301!
+
+/wp-admin https://api.hearty.app/wp-admin 200
+/wp-login.php https://api.hearty.app/wp-admin 200
+
+/* /index.html 404

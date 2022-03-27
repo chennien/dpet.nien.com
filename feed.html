@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+<meta charset="utf-8">
+<title>影片動態牆 | Dpet 喵星人社群 🐱</title>
+<meta name="description" content="Dpet 喵星人社群 :: dpet.nien.com">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<link rel="shortcut icon" href="//cdn.jsdelivr.net/gh/chennien/dpet.nien.com@alpha6/images/logo.png" type="image/png">
+<meta property="og:title" content="影片動態牆 | Dpet 喵星人社群 🐱">
+<meta property="og:image" content="//cdn.jsdelivr.net/gh/chennien/dpet.nien.com@alpha6/images/ogimage.jpg">
+<meta property="og:description" content="Dpet 喵星人社群 :: dpet.nien.com">
+<meta name="og:url" content="https://dpet.nien.com/feed">
+<meta name="og:site_name" content="Dpet 喵星人社群">
+<meta name="og:locale" content="zh_TW">
+<meta name="og:type" content="website">
+<link rel="apple-touch-icon" href="//cdn.jsdelivr.net/gh/chennien/dpet.nien.com@alpha6/images/logo.png">
+<meta name="theme-color" content="#fcc434">
+<script src="//cdn.jsdelivr.net/combine/npm/jquery@3.6.0/dist/jquery.min.js,gh/chennien/dpet.nien.com@alpha6/js/common.min.js,npm/alertify-js@0.3.12/lib/alertify.min.js" crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/gh/chennien/dpet.nien.com@alpha6/js/analytics.min.js" async crossorigin="anonymous"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/chennien/dpet.nien.com@alpha6/css/styles.min.css" crossorigin="anonymous">
+</head>
+
+<body>
+	<section class="screen">
+		<div class="feed" onclick="comments(!1)">
+			<video class="cat" playsinline autoplay loop preload muted disablePictureInPicture>
+				<source src="//cdn.jsdelivr.net/gh/chennien/dpet.nien.com@alpha6/videos/cat.mp4" type="video/mp4">
+			</video>
+
+			<video playsinline autoplay loop preload muted disablePictureInPicture poster="//img.youtube.com/vi/xllybUBGGHE/0.jpg">
+				<source src="//cdn.jsdelivr.net/gh/chennien/dpet.nien.com@alpha6/videos/xllybUBGGHE.mp4" type="video/mp4">
+			</video>
+
+			<video playsinline autoplay loop preload muted disablePictureInPicture poster="//img.youtube.com/vi/3yUuDm51dOA/0.jpg">
+				<source src="//cdn.jsdelivr.net/gh/chennien/dpet.nien.com@alpha6/videos/3yUuDm51dOA.mp4" type="video/mp4">
+			</video>
+
+			<video playsinline autoplay loop preload muted disablePictureInPicture poster="//img.youtube.com/vi/5-QGyPZtzKM/0.jpg">
+				<source src="//cdn.jsdelivr.net/gh/chennien/dpet.nien.com@alpha6/videos/5-QGyPZtzKM.mp4" type="video/mp4">
+			</video>
+
+			<video playsinline autoplay loop preload muted disablePictureInPicture poster="//img.youtube.com/vi/nJfP5Q0Rua8/0.jpg">
+				<source src="//cdn.jsdelivr.net/gh/chennien/dpet.nien.com@alpha6/videos/nJfP5Q0Rua8.mp4" type="video/mp4">
+			</video>
+
+			<video playsinline autoplay loop preload muted disablePictureInPicture poster="//img.youtube.com/vi/ZGeGC-nxkqU/0.jpg">
+				<source src="//cdn.jsdelivr.net/gh/chennien/dpet.nien.com@alpha6/videos/ZGeGC-nxkqU.mp4" type="video/mp4">
+			</video>
+
+			<video playsinline autoplay loop preload muted disablePictureInPicture poster="//img.youtube.com/vi/Iifi2BvYhpk/0.jpg">
+				<source src="//cdn.jsdelivr.net/gh/chennien/dpet.nien.com@alpha6/videos/Iifi2BvYhpk.mp4" type="video/mp4">
+			</video>
+		</div>
+		<ul class="kits">
+			<div class="heart"></div>
+			<div class="fas fa-comment" onclick="event.stopPropagation();comments(!0)"></div>
+			<div class="fas fa-share" onclick="event.stopPropagation();share()"></div>
+		</ul>
+		<footer>
+			<a target="_self" href="/camera" class="fad fa-camera"></a>
+			<a class="fas fa-compass"></a>
+			<a target="_self" href="/signin" class="fas fa-user"></a>
+		</footer>
+
+		<ul class="comments" title="3則留言" onclick="comments(!1)">
+			<li title="可愛喵喵">
+				<div style="background-image:url(//i.hearty.app/b/images/stickers/thumbnails/cats/555.png)"></div>
+			</li>
+			<li title="cute cat 😻">
+				<div style="background-image:url(//i.hearty.app/b/images/stickers/thumbnails/spring/1174.png)"></div>
+			</li>
+			<li title="lovely kitten 😘 😘 😘">
+				<div style="background-image:url(//i.hearty.app/b/images/stickers/thumbnails/little_animals/155.png)"></div>
+			</li>
+			<li onclick="msg()">
+				<div style="background-image:url(//i.hearty.app/b/images/stickers/thumbnails/cats/546.png)"></div>
+				<input type="text" placeholder="留言" disabled>
+			</li>
+		</ul>
+	</section>
+</body>
+
+</html>
